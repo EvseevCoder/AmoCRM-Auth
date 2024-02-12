@@ -45,7 +45,9 @@ auth.onclick = () => {
 // Можете вызвать эту функцию при нажатии на кнопку или при определённом условии
 // redirectToAuthorizationPage();
 
-document.addEventListener("DOMContentLoaded", function () {
+auth2 = document.querySelector(".auth2");
+
+auth2.addEventListener("click", function () {
   const queryParams = new URLSearchParams(window.location.search);
   const authCode = queryParams.get("code");
 
