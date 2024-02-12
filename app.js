@@ -1,6 +1,6 @@
 function redirectToAuthorizationPage() {
   const client_id = "10651566";
-  const redirect_uri = encodeURIComponent("http://127.0.0.1:5500/index.html");
+  const redirect_uri = encodeURIComponent("https://amo-crm-auth.vercel.app/");
   const response_type = "code";
   const state = "1234"; // Используйте уникальное значение для защиты от CSRF
   const authUrl = `https://www.amocrm.ru/oauth?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${response_type}&state=${state}`;
