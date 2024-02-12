@@ -1,5 +1,5 @@
 function redirectToAuthorizationPage() {
-  const client_id = "10651566";
+  const client_id = "58c2517b-dce9-41b0-88ba-bd02e92e5a5c";
   const redirect_uri = "https://amo-crm-auth.vercel.app/";
   const response_type = "code";
   const state = "1234"; // Используйте уникальное значение для защиты от CSRF
@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Код авторизации получен: ", authCode);
     const tokenUrl = "https://www.amocrm.ru/oauth2/access_token";
     const data = {
-      client_id: "10651566",
+      client_id: "58c2517b-dce9-41b0-88ba-bd02e92e5a5c",
       client_secret:
         "Rbxr4Ht7S9k1mS0ibbBmh1bM31uhvW7uRbXD9QZ0zQ1vtHJkAY1ZY6OcBYVc4k8E",
       grant_type: "authorization_code",
