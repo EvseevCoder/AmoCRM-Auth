@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Rbxr4Ht7S9k1mS0ibbBmh1bM31uhvW7uRbXD9QZ0zQ1vtHJkAY1ZY6OcBYVc4k8E",
       grant_type: "authorization_code",
       code: authCode,
-      redirect_uri: "amo-crm-auth.vercel.app",
+      redirect_uri: "https://amo-crm-auth.vercel.app/",
     };
 
     fetch(tokenUrl, {
