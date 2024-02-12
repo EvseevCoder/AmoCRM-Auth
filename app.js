@@ -3,9 +3,37 @@ function redirectToAuthorizationPage() {
   const redirect_uri = "https://amo-crm-auth.vercel.app/";
   const response_type = "code";
   const state = "1234"; // Используйте уникальное значение для защиты от CSRF
-  const authUrl = `https://www.amocrm.ru/oauth?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${response_type}&state=${state}`;
+  // const authUrl = `https://www.amocrm.ru/oauth?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${response_type}&state=${state}`;
 
-  window.location.href = authUrl;
+  // window.location.href = authUrl;
+
+  var popup;
+
+  auth();
+
+  // 1. Открывает окно предоставления доступов
+  function auth() {
+    popup = window.open(
+      `https://www.amocrm.ru/oauth?client_id=${client_id}state=${state}mode=post_message`,
+      "Предоставить доступ",
+      "scrollbars, status, resizable, width=750, height=580"
+    );
+  }
+
+  // 2. Регистрируем обработчика сообщений из popup окна
+  window.addEventListener("message", updateAuthInfo);
+
+  // 3. Функция обработчик, зарегистрированная выше
+  function updateAuthInfo(e) {
+    if (e.data.error !== undefined) {
+      console.log("Ошибка - " + e.data.error);
+    } else {
+      console.log("Авторизация прошла");
+    }
+
+    // 4. Закрываем модальное окно
+    popup.close();
+  }
 }
 
 auth = document.querySelector(".auth");
